@@ -19,7 +19,7 @@ workflows:
         
 jobs:
   build:
-    working_directory: ~/example_application
+    working_directory: ~/DevOpsSec
     docker:
       - image: circleci/node:latest
     steps:
@@ -43,4 +43,4 @@ jobs:
     steps:
       - run:
           name: deploy-application
-          command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export SERVER=\"$SERVER\"; export IMAGE_NAME=\"$IMAGE_NAME\"; export PRIVATE_KEY=\"$PRIVATE_KEY\";" "rm -rf ExampleApplication/; ls; git clone https://github.com/FinolaMoloney/ExampleApplication; source ExampleApplication/deploy.sh"
+          command: ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS "export SERVER=\"$SERVER\"; export IMAGE_NAME=\"$IMAGE_NAME\"; export PRIVATE_KEY=\"$PRIVATE_KEY\";" "rm -rf DevOpsSec/; ls; git clone https://github.com/FinolaMoloney/DevOpsSec; source DevOpsSec/deploy.sh"
